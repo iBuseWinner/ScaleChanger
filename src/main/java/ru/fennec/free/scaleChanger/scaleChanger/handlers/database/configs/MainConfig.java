@@ -112,4 +112,9 @@ public interface MainConfig {
     @ConfDefault.DefaultString("<prefix> <red>Введённое вами значение <yellow><arg></yellow> должно быть числом!</red>")
     String mustBeNumber();
 
+    @AnnotationBasedSorter.Order(19)
+    @ConfComments("Сообщение когда плагин перезагружен")
+    @ConfDefault.DefaultString("<prefix> <white>Вы перезагрузили плагин!</white>")
+    String reloadPlugin();
+
 }

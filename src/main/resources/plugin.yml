@@ -1,0 +1,12 @@
+name: ScaleChanger
+version: '0.1-БЕТА'
+main: ru.fennec.free.scaleChanger.scaleChanger.ScaleChangerPlugin
+api-version: '1.20'
+authors: [ BuseSo ]
+description: Меняйте размер игрока одной командой
+website: https://spigotmc.ru/members/307/
+
+commands:
+  scalechanger:
+    description: Главная команда плагина
+    aliases: [scale,fenscale,busescale]

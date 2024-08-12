@@ -58,6 +58,7 @@ public class ScaleChangerCommand extends AbstractCommand {
                 switch (args[0].toLowerCase()) {
                     case "info" -> infoOwnScale(commandSender);
                     case "about" -> aboutPlugin(commandSender);
+                    case "reload" -> reloadPlugin(commandSender);
                     default -> sendHelp(commandSender);
                 }
                 break;
@@ -113,8 +114,19 @@ public class ScaleChangerCommand extends AbstractCommand {
         commandSender.sendMessage(parseString("<prefix> <white>Плагин ScaleChanger от <green>BuseSo</green> (<green>iBuseWinner</green>). " +
                 "Установлена версия <green><version></green></white>",
                 Placeholder.parsed("prefix", mainConfig.prefix()), Placeholder.parsed("version", plugin.getPluginMeta().getVersion())));
-        commandSender.sendMessage(parseString("<prefix> <white>Автор плагина: <green>https://spigotmc.ru/members/buseso.307/",
+        commandSender.sendMessage(parseString("<prefix> <white>Ссылка на плагин: <green>https://spigotmc.ru/resources/2440/</green></white>",
                 Placeholder.parsed("prefix", mainConfig.prefix())));
+    }
+
+    private void reloadPlugin(CommandSender commandSender) {
+        if (!commandSender.hasPermission("scalechanger.admin.reload")) {
+            commandSender.sendMessage(parseString(mainConfig.noPermission(),
+                    Placeholder.parsed("prefix", mainConfig.prefix())));
+            return;
+        }
+
+        mainConfigManager.reloadConfig(plugin.getLogger());
+        mainConfig = mainConfigManager.getConfigData();
     }
 
     private void sendHelp(CommandSender commandSender) {

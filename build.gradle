@@ -3,7 +3,7 @@ plugins {
 }
 
 group = 'ru.fennec.free.scaleChanger'
-version = '0.1-БЕТА'
+version = '0.1.1-БЕТА'
 ext.projectVersion = 'b1'
 
 compileJava.options.encoding = 'UTF-8'
